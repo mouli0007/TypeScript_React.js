@@ -22,6 +22,8 @@ const fib: fibFunc = (n) => {
 };
 
 function App() {
+  
+//   UseState with typescript
   const [count, setCount] = useState<number>(1);
   const [users, setUsers] = useState<User[] | null>([]);
 
@@ -40,12 +42,16 @@ function App() {
     return () => console.log("Unmounting");
   }, [users]);
 
+  
+//   UseCallback with TypeScript
   const addTwo = useCallback(
     (
       e: MouseEvent<HTMLButtonElement> | KeyboardEvent<HTMLButtonElement>
     ): void => setCount((prev) => prev + 1),
     [count]
   );
+  
+//   Use Memo with thypeScript
 
   const result = useMemo<number>(() => fib(myNum), [myNum]);
 
